@@ -37,5 +37,6 @@ bool problem_one(int sum, int numbers[], unsigned int size)
         if (!possible_answer_checked)
             vector.push_back(numbers[i]);
     }
+    
     return false;
 }
