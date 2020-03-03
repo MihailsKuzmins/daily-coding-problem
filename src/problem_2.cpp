@@ -10,23 +10,17 @@
 //
 // for (unsigned int i = 0; i < size; i++)
 //     cout << result[i] << endl;
+//
+// delete array;
 
-// With division
+// TODO:
 int* problem_two_1(int* numbers, unsigned int size)
 {
 	int* new_array = new int[size];
-	int multiplication = 1;
-
-	for (unsigned int i = 0; i < size; i++)
-		multiplication *= numbers[i];
-
-	for (unsigned int i = 0; i < size; i++)
-		new_array[i] = multiplication / numbers[i];
-
 	return new_array;
 }
 
-// Without division
+// Not the besr way
 int* problem_two_2(int* numbers, unsigned int size)
 {
 	int* new_array = new int[size];
