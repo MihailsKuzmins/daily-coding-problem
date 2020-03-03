@@ -4,7 +4,7 @@
 
 // Example:
 // int array[5] = { 1, 2, 3, 4, 5 };
-// auto size = sizeof(array) / sizeof(*array);
+// const auto size = sizeof(array) / sizeof(*array);
 //
 // auto result = problem_two_2(array, size);
 //
@@ -14,7 +14,7 @@
 // delete array[];
 
 // Iterating only three times
-int* problem_two_1(int* numbers, unsigned int size)
+int* problem_two_1(int* numbers, const unsigned int size)
 {
 	int* result = new int[size];
 	int* cumulative_left = new int[size];
@@ -44,7 +44,7 @@ int* problem_two_1(int* numbers, unsigned int size)
 }
 
 // Brutal way, not efficient
-int* problem_two_2(int* numbers, unsigned int size)
+int* problem_two_2(int* numbers, const unsigned int size)
 {
 	int* new_array = new int[size];
 
