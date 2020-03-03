@@ -11,7 +11,7 @@
 // for (unsigned int i = 0; i < size; i++)
 //     cout << result[i] << endl;
 //
-// delete array;
+// delete array[];
 
 // TODO:
 int* problem_two_1(int* numbers, unsigned int size)
