@@ -4,20 +4,20 @@
 
 // Example
 // int array[4] = {2, 2, 2, 3};
-// auto size = sizeof(array) / sizeof(*array);
+// const auto size = sizeof(array) / sizeof(*array);
 // auto result = checkHasSum(5, array, size);
 
 #include <vector>
 
 using namespace std;
 
-bool problem_one(int sum, int numbers[], unsigned int size)
+bool problem_one(int sum, int numbers[], const unsigned int size)
 {
     vector<int> vector;
 
     for (unsigned int i = 0; i < size; i++)
     {
-        auto possible_answer = sum - numbers[i];
+        const auto possible_answer = sum - numbers[i];
         if (possible_answer <= 0)
             continue;
 
