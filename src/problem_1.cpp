@@ -11,7 +11,7 @@
 
 using namespace std;
 
-bool problem_one(int sum, int numbers[], const unsigned int size)
+bool problem_one(const int sum, int numbers[], const unsigned int size)
 {
     vector<int> vector;
 
