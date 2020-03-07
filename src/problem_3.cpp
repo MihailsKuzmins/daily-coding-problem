@@ -33,7 +33,7 @@ struct Node
 	const string value;
 	const Node* child_left, *child_right;
 
-	Node(string value, Node* child_left = nullptr, Node* child_right = nullptr): value(value), child_left(child_left), child_right(child_right)
+	Node(const string value, const Node* const child_left = nullptr, const Node* const child_right = nullptr): value(value), child_left(child_left), child_right(child_right)
 	{}
 };
 
@@ -41,19 +41,19 @@ class NodeSerialiser
 {
 private:
 	const Node* m_root;
-	void for_each_inverse(const Node* node, void (*f)(const Node* node)) const;
-	string pre_order_internal(const Node* node) const;
-	string in_order_internal(const Node* node) const;
-	string post_order_internal(const Node* node) const;
+	void for_each_inverse(const Node* const node, void (*f)(const Node* const node)) const;
+	string pre_order_internal(const Node* const node) const;
+	string in_order_internal(const Node* const node) const;
+	string post_order_internal(const Node* const node) const;
 public:
-	NodeSerialiser(const Node* root) :m_root(root) {};
+	NodeSerialiser(const Node* const root) :m_root(root) {};
 	~NodeSerialiser();
 	string pre_oder() const { return this->pre_order_internal(this->m_root); };
 	string in_order() const { return this->in_order_internal(this->m_root); };
 	string post_order() const { return this->post_order_internal(this->m_root); };
 };
 
-void NodeSerialiser::for_each_inverse(const Node* node, void (*f)(const Node* node)) const
+void NodeSerialiser::for_each_inverse(const Node* const node, void (*f)(const Node* const node)) const
 {
 	if (node == nullptr)
 		return;
@@ -65,7 +65,7 @@ void NodeSerialiser::for_each_inverse(const Node* node, void (*f)(const Node* no
 	f(node);
 }
 
-string NodeSerialiser::pre_order_internal(const Node* node) const
+string NodeSerialiser::pre_order_internal(const Node* const node) const
 {
 	if (node == nullptr)
 		return "{}";
@@ -77,7 +77,7 @@ string NodeSerialiser::pre_order_internal(const Node* node) const
 		.append("}");
 }
 
-string NodeSerialiser::in_order_internal(const Node* node) const
+string NodeSerialiser::in_order_internal(const Node* const node) const
 {
 	if (node == nullptr)
 		return "{}";
@@ -89,7 +89,7 @@ string NodeSerialiser::in_order_internal(const Node* node) const
 		.append("}");
 }
 
-string NodeSerialiser::post_order_internal(const Node* node) const
+string NodeSerialiser::post_order_internal(const Node* const node) const
 {
 	if (node == nullptr)
 		return "{}";
@@ -103,7 +103,7 @@ string NodeSerialiser::post_order_internal(const Node* node) const
 
 NodeSerialiser::~NodeSerialiser()
 {
-	auto deleteFunc = [](const Node * node)
+	const auto deleteFunc = [](const Node* const node)
 	{
 		delete node;
 	};
