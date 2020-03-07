@@ -24,7 +24,6 @@
 
 #include <string>
 #include <functional>
-#include <iostream>
 
 using namespace std;
 
@@ -41,7 +40,7 @@ class NodeSerialiser
 {
 private:
 	const Node* m_root;
-	void for_each_inverse(const Node* const node, void (*f)(const Node* const node)) const;
+	void for_each_inverse(const Node* const node, const function<void (const Node* const node)> f) const;
 	string pre_order_internal(const Node* const node) const;
 	string in_order_internal(const Node* const node) const;
 	string post_order_internal(const Node* const node) const;
@@ -53,7 +52,7 @@ public:
 	string post_order() const { return this->post_order_internal(this->m_root); };
 };
 
-void NodeSerialiser::for_each_inverse(const Node* const node, void (*f)(const Node* const node)) const
+void NodeSerialiser::for_each_inverse(const Node* const node, const function<void (const Node* const node)> f) const
 {
 	if (node == nullptr)
 		return;
