@@ -41,7 +41,7 @@ class NodeSerialiser
 {
 private:
 	const Node* m_root;
-	void for_each(const Node* node, void (*f)(const Node* node)) const;
+	void for_each_inverse(const Node* node, void (*f)(const Node* node)) const;
 	string pre_order_internal(const Node* node) const;
 	string in_order_internal(const Node* node) const;
 	string post_order_internal(const Node* node) const;
@@ -53,13 +53,13 @@ public:
 	string post_order() const { return this->post_order_internal(this->m_root); };
 };
 
-void NodeSerialiser::for_each(const Node* node, void (*f)(const Node* node)) const
+void NodeSerialiser::for_each_inverse(const Node* node, void (*f)(const Node* node)) const
 {
 	if (node == nullptr)
 		return;
 
-	this->for_each(node->child_left, f);
-	this->for_each(node->child_right, f);
+	this->for_each_inverse(node->child_left, f);
+	this->for_each_inverse(node->child_right, f);
 	
 	// IMPORTANT for the destructor
 	f(node);
@@ -108,5 +108,5 @@ NodeSerialiser::~NodeSerialiser()
 		delete node;
 	};
 
-	this->for_each(this->m_root, deleteFunc);
+	this->for_each_inverse(this->m_root, deleteFunc);
 }
