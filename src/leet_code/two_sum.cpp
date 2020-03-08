@@ -9,13 +9,13 @@
 // const int arr[] = { 2,7,11,15 };
 // const int target = 9;
 // const auto size = sizeof(arr) / sizeof(*arr);
-// const auto result = sum_two(target, arr, size);
+// const auto result = two_sum(target, arr, size);
 
 #include <map>
 
 using namespace std;
 
-auto sum_two(const int target, int const numbers[], const unsigned int size)
+auto two_sum(const int target, int const numbers[], const unsigned int size)
 {
 	map<int, unsigned int> map;
 
