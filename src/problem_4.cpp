@@ -8,9 +8,9 @@
 //
 // auto result = problem_four(array, size);
 
-unsigned int get_positive_numbers(int* numbers, unsigned int size);
+unsigned int get_positive_numbers(int* const numbers, const unsigned int size);
 
-int problem_four(int* numbers, unsigned int size)
+int problem_four(int* const numbers, const unsigned int size)
 {
 	const auto positive_index = get_positive_numbers(numbers, size);
 
@@ -47,7 +47,7 @@ int problem_four(int* numbers, unsigned int size)
 
 // purpose of this function is to move all positive elements to the right-hand side;
 // and all negative to the left-hand side
-unsigned int get_positive_numbers(int* numbers, unsigned int size)
+unsigned int get_positive_numbers(int* const numbers, const unsigned int size)
 {
 	unsigned int i = 0, j = size - 1;
 
