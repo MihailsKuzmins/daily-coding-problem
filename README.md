@@ -1,5 +1,7 @@
 # daily-coding-problem
 
+### leet-code-problems
+There is a very nice platform for solving different kinds of problems [LeetCode](https://leetcode.com/). Sometimes I try to solve their problems and publish some solutions [here](src/leet_code). Definitely encourage you to visit their webpage.  
 #### Problem 1  
 Given a list of numbersand a number *k*, return whether any two numbers from the list add up to *k*.  
 For example, given `[10, 15, 3, 7]` and *k* of *17*, return true since *10 + 7* is *17*.  
