@@ -9,7 +9,7 @@
 using namespace std;
 
 // idea is to list cumulative numbers of possible encoding ways
-int problem_seven(const string input)
+int problem_seven(const string& input)
 {
 	const auto max_number = 26;
 	const auto input_length = input.length();
