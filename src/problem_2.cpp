@@ -14,7 +14,7 @@
 // delete array[];
 
 // Iterating only three times
-int* problem_two_1(int* numbers, const unsigned int size)
+int* problem_two_1(const int* const numbers, const unsigned int size)
 {
 	int* result = new int[size];
 	int* cumulative_left = new int[size];
@@ -44,7 +44,7 @@ int* problem_two_1(int* numbers, const unsigned int size)
 }
 
 // Brutal way, not efficient
-int* problem_two_2(int* numbers, const unsigned int size)
+int* problem_two_2(const int* const numbers, const unsigned int size)
 {
 	int* new_array = new int[size];
 

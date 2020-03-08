@@ -17,7 +17,7 @@
 
 using namespace std;
 
-function<int (function<int(const int, const int)>)> cons(const int& a, const int& b)
+function<int (const function<int(const int, const int)>)> cons(const int& a, const int& b)
 {
 	return [&](function<int(const int, const int)> f)
 	{
@@ -25,7 +25,7 @@ function<int (function<int(const int, const int)>)> cons(const int& a, const int
 	};
 }
 
-int car(function<int(function<int(const int, const int)>)> f)
+int car(const function<int(const function<int(const int, const int)>)> f)
 {
 	return f([](const int arg1, const int arg2)
 	{
@@ -33,7 +33,7 @@ int car(function<int(function<int(const int, const int)>)> f)
 	});
 }
 
-int cdr(function<int(function<int(const int, const int)>)> f)
+int cdr(const function<int(const function<int(const int, const int)>)> f)
 {
 	return f([](const int arg1, const int arg2)
 	{
