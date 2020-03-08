@@ -38,8 +38,7 @@ int problem_seven(const string& input)
 		arr[next_index] = input[i] != '0' ? arr[i] : 0;
 			
 		// check for two-digits
-		const int prev_index = i - 1;
-		switch (input[prev_index])
+		switch (const int prev_index = i - 1; input[prev_index])
 		{
 		case '0':
 			break;
