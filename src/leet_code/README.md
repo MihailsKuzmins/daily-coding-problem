@@ -59,3 +59,10 @@ Coud you solve it without converting the integer to a string?
 
 [Solution "*Palindrome Number*"](palindrome_number.cpp)
 ---
+
+#### Problem "*Roman to Integer*"
+Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.  
+Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999.  
+
+[Solution "*Roman to Integer*"](roman_to_integer.cpp)
+---
