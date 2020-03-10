@@ -66,3 +66,60 @@ Given a roman numeral, convert it to an integer. Input is guaranteed to be withi
 
 [Solution "*Roman to Integer*"](roman_to_integer.cpp)
 ---
+
+#### Problem "*Longest Common Prefix*"
+Write a function to find the longest common prefix string amongst an array of strings.  
+If there is no common prefix, return an empty string `""`.  
+**Example 1**:
+```
+Input: ["flower","flow","flight"]
+Output: "fl"
+```
+**Example 2**:
+```
+Input: ["dog","racecar","car"]
+Output: ""
+Explanation: There is no common prefix among the input strings.
+```
+**Note**
+All given inputs are in lowercase letters `a-z`.
+
+[Solution "*Longest Common Prefix*"](longest_common_prefix.cpp)
+---
+
+#### Problem "*Valid Parentheses*"
+Given a string containing just the characters `'('`, `')'`, `'{'`, `'}'`, `'['` and `']'`, determine if the input string is valid.  
+An input string is valid if:  
+1) Open brackets must be closed by the same type of brackets.
+2) Open brackets must be closed in the correct order.
+
+Note that an empty string is also considered valid.  
+
+**Example 1**:
+```
+Input: "()"
+Output: true
+```
+**Example 2**:
+```
+Input: "()[]{}"
+Output: true
+```
+**Example 3**:
+```
+Input: "(]"
+Output: false
+```
+**Example 4**:
+```
+Input: "([)]"
+Output: false
+```
+**Example 5**:
+```
+Input: "{[]}"
+Output: true
+```
+
+[Solution "*Valid Parentheses*"](valid_parentheses.cpp)
+---
