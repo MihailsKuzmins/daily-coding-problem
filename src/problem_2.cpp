@@ -24,14 +24,9 @@ int* problem_two_1(const int* const numbers, const unsigned int size)
 	cumulative_right[size - 1] = 1;
 
 	for (unsigned int i = 1; i < size; i++)
-		cumulative_left[i] = cumulative_left[i - 1] * numbers[i - 1];
-
-	for (unsigned int i = size - 2;; i--)
 	{
-		cumulative_right[i] = cumulative_right[i + 1] * numbers[i + 1];
-
-		if (i == 0)
-			break;
+		cumulative_left[i] = cumulative_left[i - 1] * numbers[i - 1];
+		cumulative_right[size - i - 1] = cumulative_right[size - i] * numbers[size - i];
 	}
 
 	for (unsigned int i = 0; i < size; i++)
