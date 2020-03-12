@@ -70,3 +70,10 @@ The order of elements can be changed. It doesn't matter what you leave beyond th
 
 [Solution "*Remove Element*"](remove_element.cpp)
 ---
+
+#### Problem "*Implement strStr()*"
+Implement `strStr()`.  
+Return the index of the first occurrence of needle in haystack, or **-1** if needle is not part of haystack.  
+
+[Solution "*Implement strStr()*"](str_str.cpp)
+---
