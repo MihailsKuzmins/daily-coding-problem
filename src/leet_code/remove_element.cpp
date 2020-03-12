@@ -14,10 +14,8 @@ const unsigned int remove_element(int* numbers, const int remove_value, const un
 
 	unsigned int i = 0;
 	for (unsigned int j = 0; j < size; j++)
-	{
 		if (numbers[j] != remove_value)
 			numbers[i++] = numbers[j];
-	}
 
 	return i;
 }
