@@ -5,38 +5,26 @@
 // Example
 // int array[4] = {2, 2, 2, 3};
 // const auto size = sizeof(array) / sizeof(*array);
-// auto result = checkHasSum(5, array, size);
+// auto result = problem_one(5, array, size);
 
-#include <vector>
+#include <set>
 
 using namespace std;
 
 bool problem_one(const int sum, int const numbers[], const unsigned int size)
 {
-    vector<int> vector;
+	set<int> set;
 
-    for (unsigned int i = 0; i < size; i++)
-    {
-        const auto possible_answer = sum - numbers[i];
-        if (possible_answer <= 0)
-            continue;
+	for (unsigned int i = 0; i < size; i++)
+	{
+		const auto possible_answer = sum - numbers[i];
 
-        auto possible_answer_checked = false;
-        for (auto item : vector)
-        {
-            // already checked
-            if (item == numbers[i])
-            {
-                possible_answer_checked = true;
-                break;
-            }
-            else if (item == possible_answer)
-                return true;
-        }
+		for (const auto& item : set)
+			if (item == numbers[i])
+				return true;
 
-        if (!possible_answer_checked)
-            vector.push_back(numbers[i]);
-    }
-    
-    return false;
+		set.insert(possible_answer);
+	}
+
+	return false;
 }
