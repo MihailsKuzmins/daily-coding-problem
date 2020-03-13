@@ -16,47 +16,49 @@
 
 using namespace std;
 
+template <class T>
 struct Node
 {
 private:
-	const int m_value;
-	Node* m_xor_node;
-	
-	Node* compute_xor(Node* prev_node, Node* next_node) const
+	const T m_value;
+	Node<T>* m_xor_node;
+	Node<T>* compute_xor(Node<T>* prev_node, Node<T>* next_node) const
 	{
-		return (Node*)(((uintptr_t)prev_node) ^ ((uintptr_t)next_node));
+		return (Node<T>*)(((uintptr_t)prev_node) ^ ((uintptr_t)next_node));
 	}
 
 public:
-	Node(const int value, Node* prev_node, Node* next_node)
+	Node<T>(const T& value, Node<T>* prev_node, Node<T>* next_node)
 		:m_value(value), m_xor_node(compute_xor(prev_node, next_node)) {}
 
-	int get_value() const { return m_value; }
-	Node* perform_xor(Node* node) const { return compute_xor(m_xor_node, node); }
-	void set_node(Node* prev_node, Node* next_node) { m_xor_node = compute_xor(prev_node, next_node); }
+	const T& get_value() const { return m_value; }
+	Node<T>* perform_xor(Node<T>* node) const { return compute_xor(m_xor_node, node); }
+	void set_node(Node<T>* prev_node, Node<T>* next_node) { m_xor_node = compute_xor(prev_node, next_node); }
 };
 
+template <class T>
 class XorLinkedList
 {
 private:
-	Node* m_head = nullptr;
-	Node* m_tail = nullptr;
+	Node<T>* m_head = nullptr;
+	Node<T>* m_tail = nullptr;
 	unsigned int m_size = 0;
 
-	void for_each(const function<void(const Node* const)>& func) const;
-	Node* get_from_head(const unsigned int&& count) const;
-	Node* get_from_tail(const unsigned int&& count) const;
+	void for_each(const function<void(const Node<T>* const)>& func) const;
+	Node<T>* get_from_head(const unsigned int&& count) const;
+	Node<T>* get_from_tail(const unsigned int&& count) const;
 
 public:
-	~XorLinkedList() { for_each([](const Node* const node) { delete node; }); }
-	void add(int value);
-	Node* at(const unsigned int&& index);
+	~XorLinkedList() { for_each([](const Node<T>* const node) { delete node; }); }
+	void add(const T& value);
+	Node<T>* at(const unsigned int&& index);
 };
 
-void XorLinkedList::add(int value)
+template <class T>
+void XorLinkedList<T>::add(const T& value)
 {
 	// Last element, {last} ^ nullptr
-	Node* new_node = new Node(value, m_tail, nullptr);
+	Node<T>* new_node = new Node<T>(value, m_tail, nullptr);
 
 	// Set to new: {prev} ^ {new_node}
 	if (m_tail)
@@ -72,7 +74,8 @@ void XorLinkedList::add(int value)
 	m_size++;
 }
 
-Node* XorLinkedList::at(const unsigned int&& index)
+template <class T>
+Node<T>* XorLinkedList<T>::at(const unsigned int&& index)
 {
 	if (index >= m_size)
 		throw out_of_range("Index is greater than size");
@@ -82,9 +85,10 @@ Node* XorLinkedList::at(const unsigned int&& index)
 		: get_from_tail(m_size - index);
 }
 
-Node* XorLinkedList::get_from_head(const unsigned int&& count) const
+template <class T>
+Node<T>* XorLinkedList<T>::get_from_head(const unsigned int&& count) const
 {
-	Node* current_node = m_head, *prev_node = nullptr, *next_node = nullptr;
+	Node<T>* current_node = m_head, *prev_node = nullptr, *next_node = nullptr;
 
 	for (unsigned int i = 0; i < count; i++)
 	{
@@ -96,9 +100,10 @@ Node* XorLinkedList::get_from_head(const unsigned int&& count) const
 	return prev_node;
 }
 
-Node* XorLinkedList::get_from_tail(const unsigned int&& count) const
+template <class T>
+Node<T>* XorLinkedList<T>::get_from_tail(const unsigned int&& count) const
 {
-	Node* current_node = m_tail, * prev_node = nullptr, * next_node = nullptr;
+	Node<T>* current_node = m_tail, * prev_node = nullptr, * next_node = nullptr;
 
 	for (unsigned int i = 0; i < count; i++)
 	{
@@ -110,9 +115,10 @@ Node* XorLinkedList::get_from_tail(const unsigned int&& count) const
 	return next_node;
 }
 
-void XorLinkedList::for_each(const function<void(const Node* const)>& func) const
+template <class T>
+void XorLinkedList<T>::for_each(const function<void(const Node<T>* const)>& func) const
 {
-	Node* current_node = m_head, * prev_node = nullptr, * next_node = nullptr;
+	Node<T>* current_node = m_head, * prev_node = nullptr, * next_node = nullptr;
 
 	while (current_node)
 	{
