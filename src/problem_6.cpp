@@ -10,6 +10,7 @@
 
 #include <stdint.h>
 #include <functional>
+#include <exception>
 
 using namespace std;
 
@@ -18,6 +19,7 @@ struct Node
 private:
 	const int m_value;
 	Node* m_xor_node;
+	
 	Node* compute_xor(Node* prev_node, Node* next_node) const
 	{
 		return (Node*)(((uintptr_t)prev_node) ^ ((uintptr_t)next_node));
@@ -35,12 +37,18 @@ public:
 class XorLinkedList
 {
 private:
+	Node* m_head = nullptr;
 	Node* m_tail = nullptr;
+	unsigned int m_size = 0;
+
+	void for_each(const function<void(const Node* const)>& func) const;
+	Node* get_from_head(const unsigned int&& count) const;
+	Node* get_from_tail(const unsigned int&& count) const;
 
 public:
-	~XorLinkedList() { for_each_reverse([](const Node* const node) { delete node; }); }
+	~XorLinkedList() { for_each([](const Node* const node) { delete node; }); }
 	void add(int value);
-	void for_each_reverse(const function<void (const Node* const)> func) const;
+	Node* at(const unsigned int&& index);
 };
 
 void XorLinkedList::add(int value)
@@ -49,25 +57,67 @@ void XorLinkedList::add(int value)
 	Node* new_node = new Node(value, m_tail, nullptr);
 
 	// Set to new: {prev} ^ {new_node}
-	if (m_tail != nullptr)
+	if (m_tail)
 	{
 		auto prev_node = m_tail->perform_xor(nullptr);
 		m_tail->set_node(prev_node, new_node);
 	}
 
+	if (!m_head)
+		m_head = new_node;
+
 	m_tail = new_node;
+	m_size++;
 }
 
-void XorLinkedList::for_each_reverse(const function<void(const Node* const)> func) const
+Node* XorLinkedList::at(const unsigned int&& index)
 {
-	Node* current = m_tail, * next_node = nullptr, * prev_node = nullptr;
+	if (index >= m_size)
+		throw out_of_range("Index is greater than size");
 
-	while (current != nullptr)
+	return index < m_size / 2
+		? get_from_head(index + 1)
+		: get_from_tail(m_size - index);
+}
+
+Node* XorLinkedList::get_from_head(const unsigned int&& count) const
+{
+	Node* current_node = m_head, *prev_node = nullptr, *next_node = nullptr;
+
+	for (unsigned int i = 0; i < count; i++)
 	{
-		prev_node = current->perform_xor(next_node);
-		next_node = current;
+		next_node = current_node->perform_xor(prev_node);
+		prev_node = current_node;
+		current_node = next_node;
+	}
 
-		func(current);
-		current = prev_node;
+	return prev_node;
+}
+
+Node* XorLinkedList::get_from_tail(const unsigned int&& count) const
+{
+	Node* current_node = m_tail, * prev_node = nullptr, * next_node = nullptr;
+
+	for (unsigned int i = 0; i < count; i++)
+	{
+		prev_node = current_node->perform_xor(next_node);
+		next_node = current_node;
+		current_node = prev_node;
+	}
+
+	return next_node;
+}
+
+void XorLinkedList::for_each(const function<void(const Node* const)>& func) const
+{
+	Node* current_node = m_head, * prev_node = nullptr, * next_node = nullptr;
+
+	while (current_node)
+	{
+		next_node = current_node->perform_xor(prev_node);
+		prev_node = current_node;
+
+		func(current_node);
+		current_node = next_node;
 	}
 }
