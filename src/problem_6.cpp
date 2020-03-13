@@ -32,7 +32,7 @@ public:
 		:m_value(value), m_xor_node(compute_xor(prev_node, next_node)) {}
 
 	int get_value() const { return m_value; }
-	Node* perform_xor(Node* node) const { return compute_xor(m_xor_node, node);; }
+	Node* perform_xor(Node* node) const { return compute_xor(m_xor_node, node); }
 	void set_node(Node* prev_node, Node* next_node) { m_xor_node = compute_xor(prev_node, next_node); }
 };
 
