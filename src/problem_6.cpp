@@ -7,6 +7,8 @@
 // xor_linked_list->add(2);
 // xor_linked_list->add(3);
 // xor_linked_list->add(4);
+//
+// const auto result = xor_linked_list->at(2)->get_value();
 
 #include <stdint.h>
 #include <functional>
@@ -30,7 +32,7 @@ public:
 		:m_value(value), m_xor_node(compute_xor(prev_node, next_node)) {}
 
 	int get_value() const { return m_value; }
-	Node* perform_xor(Node* node) const { return compute_xor(m_xor_node, node);; }
+	Node* perform_xor(Node* node) const { return compute_xor(m_xor_node, node); }
 	void set_node(Node* prev_node, Node* next_node) { m_xor_node = compute_xor(prev_node, next_node); }
 };
 
