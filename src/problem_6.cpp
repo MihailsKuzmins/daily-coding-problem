@@ -7,6 +7,8 @@
 // xor_linked_list->add(2);
 // xor_linked_list->add(3);
 // xor_linked_list->add(4);
+//
+// const auto result = xor_linked_list->at(2)->get_value();
 
 #include <stdint.h>
 #include <functional>
