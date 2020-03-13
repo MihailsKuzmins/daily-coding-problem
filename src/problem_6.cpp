@@ -25,11 +25,11 @@ private:
 
 public:
 	Node(const int value, Node* prev_node, Node* next_node)
-		:m_value(value), m_xor_node(this->compute_xor(prev_node, next_node)) {}
+		:m_value(value), m_xor_node(compute_xor(prev_node, next_node)) {}
 
-	int get_value() const { return this->m_value; }
-	Node* perform_xor(Node* node) const { return this->compute_xor(this->m_xor_node, node);; }
-	void set_node(Node* prev_node, Node* next_node) { this->m_xor_node = this->compute_xor(prev_node, next_node); }
+	int get_value() const { return m_value; }
+	Node* perform_xor(Node* node) const { return compute_xor(m_xor_node, node);; }
+	void set_node(Node* prev_node, Node* next_node) { m_xor_node = compute_xor(prev_node, next_node); }
 };
 
 class XorLinkedList
@@ -38,7 +38,7 @@ private:
 	Node* m_tail = nullptr;
 
 public:
-	~XorLinkedList() { this->for_each_reverse([](const Node* const node) { delete node; }); }
+	~XorLinkedList() { for_each_reverse([](const Node* const node) { delete node; }); }
 	void add(int value);
 	void for_each_reverse(const function<void (const Node* const)> func) const;
 };
@@ -46,21 +46,21 @@ public:
 void XorLinkedList::add(int value)
 {
 	// Last element, {last} ^ nullptr
-	Node* new_node = new Node(value, this->m_tail, nullptr);
+	Node* new_node = new Node(value, m_tail, nullptr);
 
 	// Set to new: {prev} ^ {new_node}
-	if (this->m_tail != nullptr)
+	if (m_tail != nullptr)
 	{
-		auto prev_node = this->m_tail->perform_xor(nullptr);
-		this->m_tail->set_node(prev_node, new_node);
+		auto prev_node = m_tail->perform_xor(nullptr);
+		m_tail->set_node(prev_node, new_node);
 	}
 
-	this->m_tail = new_node;
+	m_tail = new_node;
 }
 
 void XorLinkedList::for_each_reverse(const function<void(const Node* const)> func) const
 {
-	Node* current = this->m_tail, * next_node = nullptr, * prev_node = nullptr;
+	Node* current = m_tail, * next_node = nullptr, * prev_node = nullptr;
 
 	while (current != nullptr)
 	{
