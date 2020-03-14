@@ -115,3 +115,10 @@ You may assume the integer does not contain any leading zero, except the number 
 
 [Solution "*Plus One*"](plus_one.cpp)
 ---
+
+#### Problem "*Add Binary*"
+Given two binary strings, return their sum (also a binary string).  
+The input strings are both **non-empty** and contains only characters `1` or `0`.
+
+[Solution "*Plus One*"](add_binary.cpp)
+---
