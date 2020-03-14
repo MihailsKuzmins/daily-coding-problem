@@ -16,9 +16,8 @@ vector<char> plus_one(vector<char>& digits) noexcept
 			return digits;
 
 		const auto sum = digits[i] + remember;
-		const char factor = sum > 9 ? 10 : 0;
 
-		digits[i] = sum - factor;
+		digits[i] = sum % 10;
 		remember = sum / 10;
 
 		if (i == 0)
