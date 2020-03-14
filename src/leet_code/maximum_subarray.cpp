@@ -4,14 +4,14 @@
 // Example:
 // int arr[] = { -2,1,-3,4,-1,2,1,-5,4 };
 // auto size = sizeof(arr) / sizeof(*arr);
-// auto result = max_subarray(arr, size);
+// auto result = maximum_subarray(arr, size);
 
 #include <limits>
 #include <algorithm>
 
 using namespace std;
 
-int max_subarray(const int numbers[], const unsigned int size) noexcept
+int maximum_subarray(const int numbers[], const unsigned int size) noexcept
 {
 	int result = numeric_limits<int>::min(), current = result;
 
