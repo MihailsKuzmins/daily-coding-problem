@@ -2,7 +2,7 @@
 // Note: Each term of the sequence of integers will be represented as a string.
 
 // Example:
-// auto result = count_and_say(30);
+// auto result = count_and_say_2(30);
 
 #include <string>
 using namespace std;
