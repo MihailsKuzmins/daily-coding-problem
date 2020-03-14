@@ -84,3 +84,10 @@ You may assume no duplicates in the array.
 
 [Solution "*Search Insert Position*"](search_insert_position.cpp)
 ---
+
+#### Problem "*Count and Say*"
+Given an integer n where 1 ≤ n ≤ 30, generate the nth term of the count-and-say sequence. You can do so recursively, in other words from the previous member read off the digits, counting the number of digits in groups of the same digit.  
+Note: Each term of the sequence of integers will be represented as a string.  
+
+[Solution "*Count and Say*"](count_and_say.cpp)
+---
