@@ -77,3 +77,17 @@ Return the index of the first occurrence of needle in haystack, or **-1** if nee
 
 [Solution "*Implement strStr()*"](str_str.cpp)
 ---
+
+#### Problem "*Search Insert Position*"
+Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.  
+You may assume no duplicates in the array.  
+
+[Solution "*Search Insert Position*"](search_insert_position.cpp)
+---
+
+#### Problem "*Count and Say*"
+Given an integer n where 1 ≤ n ≤ 30, generate the nth term of the count-and-say sequence. You can do so recursively, in other words from the previous member read off the digits, counting the number of digits in groups of the same digit.  
+Note: Each term of the sequence of integers will be represented as a string.  
+
+[Solution "*Count and Say*"](count_and_say.cpp)
+---
