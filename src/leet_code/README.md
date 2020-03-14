@@ -91,3 +91,27 @@ Note: Each term of the sequence of integers will be represented as a string.
 
 [Solution "*Count and Say*"](count_and_say.cpp)
 ---
+
+#### Problem "*Maximum Subarray*"
+Given an integer array `nums`, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.  
+**Follow up**:  
+If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.  
+
+[Solution "*Maximum Subarray*"](maximum_subarray.cpp)
+---
+
+#### Problem "*Length of Last Word*"
+Given a string s consists of upper/lower-case alphabets and empty space characters `' '`, return the length of last word (last word means the last appearing word if we loop from left to right) in the string.  
+If the last word does not exist, return 0.  
+**Note**: A word is defined as a **maximal substring** consisting of non-space characters only.
+
+[Solution "*Length of Last Word*"](length_of_last_word.cpp)
+---
+
+#### Problem "*Plus One*"
+Given a **non-empty** array of digits representing a non-negative integer, plus one to the integer.  
+The digits are stored such that the most significant digit is at the head of the list, and each element in the array contain a single digit.  
+You may assume the integer does not contain any leading zero, except the number 0 itself.  
+
+[Solution "*Plus One*"](plus_one.cpp)
+---
