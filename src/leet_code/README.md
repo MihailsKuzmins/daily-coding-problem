@@ -115,3 +115,26 @@ You may assume the integer does not contain any leading zero, except the number 
 
 [Solution "*Plus One*"](plus_one.cpp)
 ---
+
+#### Problem "*Add Binary*"
+Given two binary strings, return their sum (also a binary string).  
+The input strings are both **non-empty** and contains only characters `1` or `0`.
+
+[Solution "*Add Binary*"](add_binary.cpp)
+---
+
+#### Problem "*Sqrt(x)*"
+Implement `int sqrt(int x)`.  
+Compute and return the square root of x, where x is guaranteed to be a non-negative integer.  
+Since the return type is an integer, the decimal digits are truncated and only the integer part of the result is returned.  
+
+[Solution "*Sqrt(x)*"](sqrtx.cpp)
+---
+
+#### Problem "*Climbing Stairs*"
+You are climbing a stair case. It takes n steps to reach to the top.  
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?  
+**Note**: Given *n* will be a positive integer.  
+
+[Solution "*Climbing Stairs*"](climbing_stairs.cpp)
+---
