@@ -138,3 +138,9 @@ Each time you can either climb 1 or 2 steps. In how many distinct ways can you c
 
 [Solution "*Climbing Stairs*"](climbing_stairs.cpp)
 ---
+
+#### Problem "*Remove Duplicates from Sorted List*"
+Given a sorted linked list, delete all duplicates such that each element appear only *once*.  
+
+[Solution "*Remove Duplicates from Sorted List*"](remove_duplicates_from_sorted_list.cpp)
+---
