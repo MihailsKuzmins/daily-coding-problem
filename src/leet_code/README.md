@@ -160,3 +160,18 @@ Two binary trees are considered the same if they are structurally identical and 
 
 [Solution "*Same Tree*"](same_tree.cpp)
 ---
+
+#### Problem "*Symmetric Tree*"
+Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).  
+**Note**: Bonus points if you could solve it both recursively and iteratively.
+
+[Solution "*Symmetric Tree*"](symmetric_tree.cpp)
+---
+
+#### Problem "*Maximum Depth of Binary Tree*"
+Given a binary tree, find its maximum depth.  
+The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.  
+**Note**: A leaf is a node with no children.
+
+[Solution "*Maximum Depth of Binary Tree*"](maximum_depth_of_binary_tree.cpp)
+---
