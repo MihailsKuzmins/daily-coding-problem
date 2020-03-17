@@ -83,3 +83,31 @@ bool symmetric_tree_1(const Node* const root)
 
     return true;
 }
+
+// With a Queue
+bool symmetric_tree_2(const Node* const root)
+{
+    queue<const Node*> queue;
+    queue.push(root);
+    queue.push(root);
+
+    while (!queue.empty())
+    {
+        const auto left = queue.front();
+        queue.pop();
+        const auto right = queue.front();
+        queue.pop();
+
+        if (!left && !right)
+            continue;
+        if (!left || !right || left->val != right->val)
+            return false;
+
+        queue.push(left->left);
+        queue.push(right->right);
+        queue.push(left->right);
+        queue.push(right->left);
+    }
+
+    return true;
+}
