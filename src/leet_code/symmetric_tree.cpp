@@ -57,21 +57,11 @@ bool symmetric_tree_1(const Node* const root)
     if (!current_left || !current_right)
         return false;
 
-    const auto check_nodes = [](const Node* const node_one, const Node* const node_two)
-    {
-        if (!node_two)
-            return false;
-
-        return node_one->val == node_two->val &&
-            static_cast<bool>(node_one->left) == static_cast<bool>(node_two->right) &&
-            static_cast<bool>(node_one->right) == static_cast<bool>(node_two->left);
-    };
-
     while (current_left || current_right || !stack_left.empty())
     {
         while (current_left)
         {
-            if (!check_nodes(current_left, current_right))
+            if (!current_left->is_equal(current_right))
                 return false;
 
             stack_left.push(current_left);
