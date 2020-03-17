@@ -26,10 +26,10 @@ using namespace std;
 
 struct Node
 {
-	const int val;
+	const int value;
 	const Node* const left, * right;
     Node(const int value, Node* const left = nullptr, Node* const right = nullptr)
-		: val(value), left(left), right(right) {}
+		:  (value), left(left), right(right) {}
 	~Node() { delete left; delete right; }
 
 	bool is_equal(const Node* const node) const noexcept
@@ -37,7 +37,7 @@ struct Node
 		if (!node)
 			return false;
 
-		return val == node->val &&
+		return value == node->value &&
 			static_cast<bool>(left) == static_cast<bool>(node->left) &&
 			static_cast<bool>(right) == static_cast<bool>(node->right);
 	}
