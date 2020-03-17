@@ -138,3 +138,40 @@ Each time you can either climb 1 or 2 steps. In how many distinct ways can you c
 
 [Solution "*Climbing Stairs*"](climbing_stairs.cpp)
 ---
+
+#### Problem "*Remove Duplicates from Sorted List*"
+Given a sorted linked list, delete all duplicates such that each element appear only *once*.  
+
+[Solution "*Remove Duplicates from Sorted List*"](remove_duplicates_from_sorted_list.cpp)
+---
+
+#### Problem "*Merge Sorted Array*"
+Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.  
+**Note**:
+- The number of elements initialized in *nums1* and *nums2* are *m* and *n* respectively.
+- You may assume that *nums1* has enough space (size that is greater or equal to *m* + *n*) to hold additional elements from *nums2*.
+
+[Solution "*Merge Sorted Array*"](merge_sorted_array.cpp)
+---
+
+#### Problem "*Same Tree*"
+Given two binary trees, write a function to check if they are the same or not.  
+Two binary trees are considered the same if they are structurally identical and the nodes have the same value.  
+
+[Solution "*Same Tree*"](same_tree.cpp)
+---
+
+#### Problem "*Symmetric Tree*"
+Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).  
+**Note**: Bonus points if you could solve it both recursively and iteratively.
+
+[Solution "*Symmetric Tree*"](symmetric_tree.cpp)
+---
+
+#### Problem "*Maximum Depth of Binary Tree*"
+Given a binary tree, find its maximum depth.  
+The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.  
+**Note**: A leaf is a node with no children.
+
+[Solution "*Maximum Depth of Binary Tree*"](maximum_depth_of_binary_tree.cpp)
+---
