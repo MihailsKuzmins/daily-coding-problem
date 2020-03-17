@@ -153,3 +153,10 @@ Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one s
 
 [Solution "*Merge Sorted Array*"](merge_sorted_array.cpp)
 ---
+
+#### Problem "*Same Tree*"
+Given two binary trees, write a function to check if they are the same or not.  
+Two binary trees are considered the same if they are structurally identical and the nodes have the same value.  
+
+[Solution "*Same Tree*"](same_tree.cpp)
+---
